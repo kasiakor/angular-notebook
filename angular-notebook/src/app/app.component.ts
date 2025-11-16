@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from "./components/header/header.component";
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,4 @@ import { HeaderComponent } from "./components/header/header.component";
   styleUrl: './app.component.css',
   imports: [HeaderComponent],
 })
-export class AppComponent {
-  title: string = 'My Notebook';
-}
+export class AppComponent {}
