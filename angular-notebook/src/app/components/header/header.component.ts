@@ -9,4 +9,8 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class HeaderComponent {
   title: string = 'My Notebook';
+
+  toggleAddNote() {
+    console.log('add note toggled');
+  }
 }
