@@ -1,5 +1,8 @@
 <div class="note-item">
-  <h3>{{ note.text }}</h3>
+  <h3 class="note-header">
+    {{ note.text }}
+    <fa-icon class="delete-icon" [icon]="faTimes"></fa-icon>
+  </h3>
   <p>{{ note.day }}</p>
   <!-- <button (click)="deleteNote(note.id)" class="delete-btn">Delete</button> -->
 </div>

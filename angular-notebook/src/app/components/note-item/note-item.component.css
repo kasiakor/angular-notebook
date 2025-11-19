@@ -77,6 +77,22 @@
   color: #1f2937;
 }
 
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-icon {
+  color: red;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: darkred;
+}
+
 .note-item p {
   margin: 0.5rem 0;
   color: #4b5563;

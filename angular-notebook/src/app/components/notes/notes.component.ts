@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import NOTES, { Note } from '../../mock-notes';
 import { NoteItemComponent } from '../note-item/note-item.component';
 
@@ -12,7 +12,6 @@ import { NoteItemComponent } from '../note-item/note-item.component';
 })
 export class NotesComponent implements OnInit {
   notes: Note[] = NOTES;
-  @Input() note: Note | undefined;
 
   ngOnInit() {
     // Load mock notes if needed
