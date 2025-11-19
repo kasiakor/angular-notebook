@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import NOTES, { Note } from '../../mock-notes';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Note } from '../../mock-notes';
+import { NoteService } from '../../services/note.service';
 import { NoteItemComponent } from '../note-item/note-item.component';
 
 @Component({
@@ -10,48 +12,28 @@ import { NoteItemComponent } from '../note-item/note-item.component';
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.css'],
 })
-export class NotesComponent implements OnInit {
-  notes: Note[] = NOTES;
+export class NotesComponent implements OnInit, OnDestroy {
+  notes: Note[] = [];
+  private sub?: Subscription;
+
+  constructor(private noteService: NoteService) {}
 
   ngOnInit() {
-    // Load mock notes if needed
-    // this.loadNotes();
-    console.log(this.notes);
+    // subscribe to notes observable from the service
+    this.sub = this.noteService.getNotes().subscribe((notes) => {
+      this.notes = notes;
+    });
   }
 
-  loadNotes() {
-    // Mock data - can be replaced with API call
-    // this.notes = [
-    //   {
-    //     id: 1,
-    //     title: 'Welcome',
-    //     content: 'This is your first note.',
-    //     createdAt: new Date(),
-    //   },
-    //   {
-    //     id: 2,
-    //     title: 'Angular Tips',
-    //     content: 'Remember to use standalone components!',
-    //     createdAt: new Date(),
-    //   },
-    // ];
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
   }
-
-  //   addNote() {
-  //     if (this.newNoteTitle.trim() && this.newNoteContent.trim()) {
-  //       const note: Note = {
-  //         id: this.notes.length + 1,
-  //         title: this.newNoteTitle,
-  //         content: this.newNoteContent,
-  //         createdAt: new Date(),
-  //       };
-  //       this.notes.unshift(note);
-  //       this.newNoteTitle = '';
-  //       this.newNoteContent = '';
-  //     }
-  //   }
 
   //   deleteNote(id: number) {
-  //     this.notes = this.notes.filter((note) => note.id !== id);
+  //     this.noteService.deleteNote(id);
+  //   }
+
+  //   addNote(note: Omit<Note, 'id'>) {
+  //     this.noteService.addNote(note);
   //   }
 }

@@ -1,17 +1,3 @@
-<!-- <div class="notes-list">
-  @if (notes.length === 0) {
-  <p class="no-notes">No notes yet. Create one!</p>
-  } @else { @for (note of notes; track note.id) {
-  <div class="note-item">
-    <h3>{{ note.text }}</h3>
-    <p>{{ note.day }}</p>
-    <button (click)="deleteNote(note.id)" class="delete-btn">Delete</button> -->
-<!-- </div>
-  } }
-</div> -->
-
-<app-note-item
-  class="notes-list"
-  *ngFor="let note of notes"
-  [note]="note"
-></app-note-item>
+<div class="notes-list">
+  <app-note-item *ngFor="let note of notes" [note]="note"></app-note-item>
+</div>
