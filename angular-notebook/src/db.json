@@ -1,0 +1,40 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "text": "Plan a weekend getaway",
+      "day": "2024-06-01",
+      "remainder": true
+    },
+    {
+      "id": 2,
+      "text": "Buy a gift for Anna’s birthday",
+      "day": "2024-06-03",
+      "remainder": false
+    },
+    {
+      "id": 3,
+      "text": "Finish reading my new book",
+      "day": "2024-06-05",
+      "remainder": true
+    },
+    {
+      "id": 4,
+      "text": "Prepare presentation slides for work",
+      "day": "2024-06-07",
+      "remainder": false
+    },
+    {
+      "id": 5,
+      "text": "Take a long walk in the evening",
+      "day": "2024-06-10",
+      "remainder": true
+    },
+    {
+      "id": 6,
+      "text": "Call my parents and check in",
+      "day": "2024-06-12",
+      "remainder": false
+    }
+  ]
+}
