@@ -3,5 +3,6 @@
     *ngFor="let note of notes"
     [note]="note"
     (delete)="deleteNote($event)"
+    (toggle)="toggleReminder($event)"
   ></app-note-item>
 </div>

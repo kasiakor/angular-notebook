@@ -1,4 +1,4 @@
-<div class="note-item">
+<div class="note-item" [class.reminder]="note.reminder" (dblclick)="onToggle()">
   <h3 class="note-header">
     {{ note.text }}
     <fa-icon

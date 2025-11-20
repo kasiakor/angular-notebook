@@ -4,31 +4,31 @@
       "id": "1",
       "text": "Plan a weekend getaway",
       "day": "2024-06-01",
-      "remainder": true
+      "reminder": false
     },
     {
       "id": "3",
       "text": "Finish reading my new book",
       "day": "2024-06-05",
-      "remainder": true
+      "reminder": false
     },
     {
       "id": "4",
       "text": "Prepare presentation slides for work",
       "day": "2024-06-07",
-      "remainder": false
+      "reminder": false
     },
     {
       "id": "5",
       "text": "Take a long walk in the evening",
       "day": "2024-06-10",
-      "remainder": true
+      "reminder": false
     },
     {
       "id": "6",
       "text": "Call my parents and check in",
       "day": "2024-06-12",
-      "remainder": false
+      "reminder": false
     }
   ]
 }

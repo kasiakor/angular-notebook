@@ -40,4 +40,18 @@ export class NoteService {
       error: (err) => console.error('Failed to delete note', err),
     });
   }
+
+  /** Toggle reminder flag (PATCH to API) */
+  toggleReminder(id: number) {
+    const note = this.notesSubject.value.find((n) => n.id === id);
+    if (!note) return;
+    const patch = { reminder: !note.reminder } as Partial<Note>;
+    this.http.patch<Note>(`${this.apiUrl}/${id}`, patch).subscribe({
+      next: (updated) =>
+        this.notesSubject.next(
+          this.notesSubject.value.map((n) => (n.id === id ? updated : n))
+        ),
+      error: (err) => console.error('Failed to toggle reminder', err),
+    });
+  }
 }

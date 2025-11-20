@@ -33,6 +33,10 @@ export class NotesComponent implements OnInit, OnDestroy {
     this.noteService.deleteNote(id);
   }
 
+  toggleReminder(id: number) {
+    this.noteService.toggleReminder(id);
+  }
+
   //   addNote(note: Omit<Note, 'id'>) {
   //     this.noteService.addNote(note);
   //   }
