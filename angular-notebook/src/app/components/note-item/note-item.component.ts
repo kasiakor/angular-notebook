@@ -16,7 +16,8 @@ export class NoteItemComponent {
   @Input() note!: Note;
   @Output() delete = new EventEmitter<number>();
 
-  onDelete() {
+  onDelete(note: Note) {
+    console.log('Deleting note with id:', note.id);
     this.delete.emit(this.note.id);
   }
 }

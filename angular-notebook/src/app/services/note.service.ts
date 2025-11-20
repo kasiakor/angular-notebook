@@ -30,15 +30,6 @@ export class NoteService {
     return this.notes$;
   }
 
-  /** Add a new note (POST to API) */
-  addNote(note: Omit<Note, 'id'>) {
-    this.http.post<Note>(this.apiUrl, note).subscribe({
-      next: (created) =>
-        this.notesSubject.next([created, ...this.notesSubject.value]),
-      error: (err) => console.error('Failed to add note', err),
-    });
-  }
-
   /** Delete a note by id (DELETE to API) */
   deleteNote(id: number) {
     this.http.delete(`${this.apiUrl}/${id}`).subscribe({
@@ -47,20 +38,6 @@ export class NoteService {
           this.notesSubject.value.filter((n) => n.id !== id)
         ),
       error: (err) => console.error('Failed to delete note', err),
-    });
-  }
-
-  /** Toggle reminder flag (PATCH to API) */
-  toggleReminder(id: number) {
-    const note = this.notesSubject.value.find((n) => n.id === id);
-    if (!note) return;
-    const patch = { reminder: !note.reminder } as Partial<Note>;
-    this.http.patch<Note>(`${this.apiUrl}/${id}`, patch).subscribe({
-      next: (updated) =>
-        this.notesSubject.next(
-          this.notesSubject.value.map((n) => (n.id === id ? updated : n))
-        ),
-      error: (err) => console.error('Failed to toggle reminder', err),
     });
   }
 }
