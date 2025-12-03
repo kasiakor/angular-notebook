@@ -1,16 +1,16 @@
 {
   "notes": [
     {
-      "id": "1",
-      "text": "Plan a weekend getaway",
-      "day": "2024-06-01",
+      "id": "2",
+      "text": "Bake banana bread",
+      "day": "2024-06-04",
       "reminder": false
     },
     {
       "id": "3",
       "text": "Finish reading my new book",
       "day": "2024-06-05",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": "4",

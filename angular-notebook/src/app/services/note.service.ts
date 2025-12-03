@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Note } from '../mock-notes';
@@ -46,12 +46,15 @@ export class NoteService {
     const note = this.notesSubject.value.find((n) => n.id === id);
     if (!note) return;
     const patch = { reminder: !note.reminder } as Partial<Note>;
-    this.http.patch<Note>(`${this.apiUrl}/${id}`, patch).subscribe({
-      next: (updated) =>
-        this.notesSubject.next(
-          this.notesSubject.value.map((n) => (n.id === id ? updated : n))
-        ),
-      error: (err) => console.error('Failed to toggle reminder', err),
-    });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.http
+      .patch<Note>(`${this.apiUrl}/${id}`, patch, { headers })
+      .subscribe({
+        next: (updated) =>
+          this.notesSubject.next(
+            this.notesSubject.value.map((n) => (n.id === id ? updated : n))
+          ),
+        error: (err) => console.error('Failed to toggle reminder', err),
+      });
   }
 }
