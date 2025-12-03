@@ -1,3 +1,5 @@
+<app-add-note (noteAdded)="addNote($event)"></app-add-note>
+
 <div class="notes-list">
   <app-note-item
     *ngFor="let note of notes"

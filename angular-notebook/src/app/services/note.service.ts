@@ -41,6 +41,15 @@ export class NoteService {
     });
   }
 
+  /** Add a new note (POST to API) */
+  addNote(note: Omit<Note, 'id'>) {
+    this.http.post<Note>(this.apiUrl, note).subscribe({
+      next: (created) =>
+        this.notesSubject.next([created, ...this.notesSubject.value]),
+      error: (err) => console.error('Failed to add note', err),
+    });
+  }
+
   /** Toggle reminder flag (PATCH to API) */
   toggleReminder(id: number) {
     const note = this.notesSubject.value.find((n) => n.id === id);

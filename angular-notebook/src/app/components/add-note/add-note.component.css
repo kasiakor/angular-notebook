@@ -1,0 +1,114 @@
+.add-note-container {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(230, 230, 233, 0.9)
+  );
+  border-radius: 12px;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.add-note-container::before {
+  content: "🎄";
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.8rem;
+  opacity: 0.7;
+}
+
+.add-note-container h2 {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  color: #b30000;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(255, 215, 0, 0.2);
+  font-family: "Mountains of Christmas", cursive, sans-serif;
+}
+
+.add-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #2b0b00;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 2px rgba(255, 215, 0, 0.1);
+}
+
+.form-group input[type="text"] {
+  padding: 0.75rem;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2b0b00;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.15);
+  background: rgba(255, 255, 255, 1);
+}
+
+.form-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-checkbox label {
+  margin-bottom: 0;
+  cursor: pointer;
+  color: #2b0b00;
+  font-weight: 500;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #ffd700;
+}
+
+.btn-add {
+  padding: 0.9rem 1.8rem;
+  background: linear-gradient(90deg, #c0262e 0%, #b30000 50%, #ffd700 100%);
+  color: #fff;
+  border: 2px solid rgba(255, 215, 0, 0.8);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(192, 38, 46, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(192, 38, 46, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-add:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(192, 38, 46, 0.35);
+}
