@@ -41,6 +41,12 @@
       "text": "Bin old shoes",
       "day": "2024-06-15",
       "reminder": false
+    },
+    {
+      "id": "c00c",
+      "text": "Buy cat food",
+      "day": "2024-06-14",
+      "reminder": true
     }
   ]
 }

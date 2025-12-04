@@ -1,4 +1,4 @@
-<app-add-note (noteAdded)="addNote($event)"></app-add-note>
+<app-add-note *ngIf="showAddNote" (noteAdded)="addNote($event)"></app-add-note>
 
 <div class="notes-list">
   <app-note-item

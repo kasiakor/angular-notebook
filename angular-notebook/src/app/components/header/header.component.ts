@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UiService } from '../../services/ui.service';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
@@ -7,10 +9,24 @@ import { ButtonComponent } from '../button/button.component';
   styleUrls: ['./header.component.css'],
   imports: [ButtonComponent],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   title: string = 'My Notebook';
+  showAddNote: boolean = false;
+  private sub?: Subscription;
+
+  constructor(private uiService: UiService) {}
+
+  ngOnInit() {
+    this.sub = this.uiService.showAddNote$.subscribe((show) => {
+      this.showAddNote = show;
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
+  }
 
   toggleAddNote() {
-    console.log('add note toggled');
+    this.uiService.toggleAddNote();
   }
 }
